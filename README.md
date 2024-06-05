@@ -15,3 +15,6 @@ https://github.com/junegunn/vim-plug
 mkdir ~/.config/nvim
 ```
 
+### Windows nvim root
+
+~/AppData/local/nvim/init.lua
