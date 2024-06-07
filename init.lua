@@ -13,6 +13,8 @@ vim.cmd [[
     Plug 'morhetz/gruvbox'                                                                
     Plug 'joshdick/onedark.vim'                                       
     Plug 'dracula/vim', { 'as': 'dracula' }                                   
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+    Plug 'folke/tokyonight.nvim',
     Plug 'nvim-lua/plenary.nvim'                                              
     Plug 'nvim-telescope/telescope.nvim'                                      
     Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)                                   
@@ -35,7 +37,7 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 
 vim.o.nu=true                                                                                                              
 vim.o.mouse=a
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme catppuccin-mocha')
 vim.g.mapleader = ' '
 
 
@@ -81,7 +83,11 @@ vim.api.nvim_set_keymap('n', '<leader>e', ':NERDTreeToggle<CR>', {noremap = true
 
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', {noremap = true})
 
+--------------------
 -- Git
+--------------------
+vim.api.nvim_set_keymap('n', '<leader>g', ':G<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiff<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gl', ':G log<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gr', ':lua require("telescope.builtin").git_branches({ track = "--remote" })<CR>', {noremap = true})
