@@ -1,29 +1,22 @@
-vim.cmd [[                                   
-  call plug#begin('~/.vim/plugged')                                   
-    Plug 'tpope/vim-fugitive'                                   
-    Plug 'preservim/nerdtree'                                   
-    Plug 'liuchengxu/vim-which-key'                                           
-    Plug 'nvim-lua/plenary.nvim'                                      
-    Plug 'tanvirtin/vgit.nvim'                                     
-    Plug 'tpope/vim-fugitive'                                    
-    Plug 'vim-airline/vim-airline'                                   
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                                   
-    Plug 'stsewd/fzf-checkout.vim'                                                        
-    Plug 'arcticicestudio/nord-vim'                                   
-    Plug 'morhetz/gruvbox'                                                                
-    Plug 'joshdick/onedark.vim'                                       
-    Plug 'dracula/vim', { 'as': 'dracula' }                                   
-    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-    Plug 'folke/tokyonight.nvim',
-    Plug 'nvim-lua/plenary.nvim'                                              
-    Plug 'nvim-telescope/telescope.nvim'                                      
-    Plug 'nvim-tree/nvim-web-devicons' " Recommended (for coloured icons)                                   
-    Plug 'akinsho/bufferline.nvim', { 'tag': '*' }                                                          
-    Plug 'williamboman/mason.nvim'                                                                          
-    Plug 'nvim-tree/nvim-tree.lua'                                                   
-  call plug#end()                                                    
-]]                                            
-                                                         
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
+
+
+
 -- Spaces & Tabs {{{                
 vim.opt.tabstop = 4       -- number of visual spaces per TAB    
 vim.opt.softtabstop = 4   -- number of spaces in tab when editing    
@@ -37,8 +30,7 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 
 vim.o.nu=true                                                                                                              
 vim.o.mouse=a
-vim.cmd('colorscheme catppuccin-mocha')
-vim.g.mapleader = ' '
+vim.cmd('colorscheme desert')
 
 
 vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
@@ -94,7 +86,15 @@ vim.api.nvim_set_keymap('n', '<leader>gr', ':lua require("telescope.builtin").gi
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap = true})
 
+
+--------------------
+-- Lazy
+--------------------
+vim.api.nvim_set_keymap('n', '<leader>l', ':Lazy<CR>', {noremap = true})
+
+--------------------
 -- Telescope
+--------------------
 vim.api.nvim_set_keymap('n', '<leader>t', ':Telescope<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {noremap = true})
@@ -104,28 +104,56 @@ vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<CR>', {noremap = 
 ----------------------------------------
 -- Telescope mappings
 ----------------------------------------
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-        ["<C-d>"] = actions.results_scrolling_down,
-        ["<C-u>"] = actions.results_scrolling_up,
-      },
-      n = {
-        ["j"] = actions.move_selection_next,
-        ["k"] = actions.move_selection_previous,
-        ["<C-d>"] = actions.results_scrolling_down,
-        ["<C-u>"] = actions.results_scrolling_up,
-      },
+
+--require("mason").setup()
+--require("bufferline").setup()
+--require('nvim-web-devicons').setup()
+--require'nvim-web-devicons'.get_icons()
+
+require("lazy").setup({
+    "folke/which-key.nvim",
+    { "folke/neoconf.nvim", cmd = "Neoconf" },
+    "folke/neodev.nvim",
+	"tpope/vim-fugitive",
+    {"nvim-lua/plenary.nvim"},
+    {"akinsho/bufferline.nvim"},
+    {
+        "preservim/nerdtree"
     },
-  },
-}
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.6',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            local actions = require('telescope.actions')
+            require('telescope').setup {
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-d>"] = actions.results_scrolling_down,
+                            ["<C-u>"] = actions.results_scrolling_up,
+                        },
+                        n = {
+                            ["j"] = actions.move_selection_next,
+                            ["k"] = actions.move_selection_previous,
+                            ["<C-d>"] = actions.results_scrolling_down,
+                            ["<C-u>"] = actions.results_scrolling_up,
+                        },
+                    },
+                },
+            }
+        end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+          -- load the colorscheme here
+          vim.cmd([[colorscheme tokyonight]])
+        end,
+   },
+})
 
-
-require("mason").setup()
-require("bufferline").setup()
-require('nvim-web-devicons').setup()
-require'nvim-web-devicons'.get_icons()
