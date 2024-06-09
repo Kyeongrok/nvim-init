@@ -101,10 +101,6 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {noremap
 vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<CR>', {noremap = true})
 
 
-----------------------------------------
--- Telescope mappings
-----------------------------------------
-
 --require("mason").setup()
 --require("bufferline").setup()
 --require('nvim-web-devicons').setup()
@@ -116,9 +112,19 @@ require("lazy").setup({
     "folke/neodev.nvim",
 	"tpope/vim-fugitive",
     {"nvim-lua/plenary.nvim"},
-    {"akinsho/bufferline.nvim"},
     {
         "preservim/nerdtree"
+    },
+    {
+        'nvim-tree/nvim-web-devicons'
+    },
+    {
+        'akinsho/bufferline.nvim', version = "*", 
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+        require("bufferline").setup{}
+        end,
+
     },
     {
         "nvim-telescope/telescope.nvim",
