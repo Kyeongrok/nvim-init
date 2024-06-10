@@ -1,3 +1,4 @@
+local is_windows = vim.loop.os_uname().version:match("Windows")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -30,10 +31,15 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 
 vim.o.nu=true                                                                                                              
 vim.o.mouse=a
---vim.cmd('colorscheme desert')
 
+if is_windows then
+  -- Windows에서의 키 매핑
+  vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
+else
+  -- Linux에서의 키 매핑
+  vim.api.nvim_set_keymap('n', '<F10>', ':e ~/.config/nvim/init.lua<CR>', {noremap = true, silent = true})
+end
 
-vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
 
 -- Plug 플러그인 설치
 vim.api.nvim_set_keymap('n', '<F8>', ':PlugInstall<CR>', {noremap = true})
