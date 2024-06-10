@@ -44,3 +44,18 @@ vim.api.nvim_create_user_command('ReloadConfig', ReloadConfig, {})
 ```
 :lua ReloadConfig()
 ```
+
+
+### plugins.lua로 분리
+
+1. lua 디렉토리리를 만듭니다.
+2. lua/plugins.lua를 만듭니다.
+3. init.lua에 다음과 같이 import합니다.
+
+```lua
+require("lazy").setup("plugins")
+
+```
+
+
+
