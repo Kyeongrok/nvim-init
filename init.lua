@@ -91,6 +91,10 @@ vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap
 
 
 --------------------
+-- Mason
+--------------------
+vim.api.nvim_set_keymap('n', '<leader>m', ':Mason<CR>', {noremap = true})
+--------------------
 -- Lazy
 --------------------
 vim.api.nvim_set_keymap('n', '<leader>l', ':Lazy<CR>', {noremap = true})
