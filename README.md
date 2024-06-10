@@ -25,3 +25,22 @@ mkdir ~/.config/nvim
 ### Windows nvim root
 
 ~/AppData/local/nvim/init.lua
+
+
+
+### init.lua파일 리로드
+
+```lua
+function ReloadConfig()
+    vim.cmd('source ' .. vim.fn.expand('%:p'))
+    print("Configuration reloaded!")
+end
+
+-- 명령어 정의
+vim.api.nvim_create_user_command('ReloadConfig', ReloadConfig, {})
+
+```
+
+```
+:lua ReloadConfig()
+```

@@ -30,7 +30,7 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 
 vim.o.nu=true                                                                                                              
 vim.o.mouse=a
-vim.cmd('colorscheme desert')
+--vim.cmd('colorscheme desert')
 
 
 vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
@@ -68,6 +68,7 @@ vim.api.nvim_set_keymap('n', '<S-h>', ':bprevious<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<leader>rr', ':term poetry run python ~/rs485-python/rs485_python/main.py<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>rr', ':!python %<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<leader>rc', ':term poetry run python /root/git/rs485-python/rs485_python/Gpio.py<CR>', {noremap = true})
 
@@ -80,7 +81,9 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', {noremap = true})
 --------------------
 vim.api.nvim_set_keymap('n', '<leader>g', ':G<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiff<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gu', ':Git push<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gp', ':Git pull<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiff<C>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gl', ':G log<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gr', ':lua require("telescope.builtin").git_branches({ track = "--remote" })<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
@@ -105,6 +108,14 @@ vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<CR>', {noremap = 
 --require("bufferline").setup()
 --require('nvim-web-devicons').setup()
 --require'nvim-web-devicons'.get_icons()
+
+function ReloadConfig()
+    vim.cmd('source ' .. vim.fn.expand('%:p'))
+    print("Configuration reloaded!")
+end
+
+-- 명령어 정의
+vim.api.nvim_create_user_command('ReloadConfig', ReloadConfig, {})
 
 require("lazy").setup({
     "folke/which-key.nvim",
