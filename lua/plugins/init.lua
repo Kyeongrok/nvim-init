@@ -4,9 +4,7 @@ return {
     "folke/neodev.nvim",
 	"tpope/vim-fugitive",
     {"nvim-lua/plenary.nvim"},
-    {
-        "preservim/nerdtree"
-    },
+    {"preservim/nerdtree"},
     {
         'nvim-tree/nvim-web-devicons'
     },

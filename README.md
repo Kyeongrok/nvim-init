@@ -58,4 +58,20 @@ require("lazy").setup("plugins")
 ```
 
 
+### LSP서버 참조 중지
 
+#### 서버의 리소스를 많이 쓰기 때문에 꺼야 할 때가 있습니다.
+
+nvim-lspconfig 설정 변경
+
+```lua
+{
+    "neovim/nvim-lspconfig",
+    config = function()
+        local lspconfig = require('lspconfig')
+        lspconfig.lua_ls.setup({})
+      --  lspconfig.pylyzer.setup({}) -- 주석을 풀면 pylyzer가 활성화 됩니다.
+
+    end
+}
+```

@@ -9,7 +9,10 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = {"lua_ls", "pylyzer"}
+                ensure_installed = {
+                    "lua_ls",
+                   -- "pylyzer"
+                }
             })
         end
     },
@@ -18,7 +21,7 @@ return {
         config = function()
             local lspconfig = require('lspconfig')
             lspconfig.lua_ls.setup({})
-            lspconfig.pylyzer.setup({})
+          --  lspconfig.pylyzer.setup({}) -- 주석을 풀면 pylyzer가 활성화 됩니다.
 
         end
     }
