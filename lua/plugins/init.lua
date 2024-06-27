@@ -1,7 +1,7 @@
 return {
-    "folke/which-key.nvim",
+    {"folke/which-key.nvim"},
     { "folke/neoconf.nvim", cmd = "Neoconf" },
-    "folke/neodev.nvim",
+    {"folke/neodev.nvim"},
 	"tpope/vim-fugitive",
     {"nvim-lua/plenary.nvim"},
     {"preservim/nerdtree"},
@@ -49,6 +49,9 @@ return {
         config = function()
           -- load the colorscheme here
         end,
+    },
+    {
+        'mg979/vim-visual-multi'
     },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
