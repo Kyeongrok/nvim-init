@@ -1,8 +1,31 @@
 
 
-### Prerequisite
+## Prerequisite
 
-vim-plug설치
+
+### Lazy설치
+
+init.lua
+
+```lua
+local is_windows = vim.loop.os_uname().version:match("Windows")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+```
+
+
+
+### vim-plug설치
 
 ```
 https://github.com/junegunn/vim-plug
@@ -20,6 +43,7 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 
 ```bash
 mkdir ~/.config/nvim
+git clone https://github.com/Kyeongrok/nvim-init .config/nvim
 ```
 
 ### Windows nvim root
