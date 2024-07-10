@@ -50,6 +50,7 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 ### .config/nvim 디렉토리만들기
 
 ```bash
+mkdir ~/.config
 mkdir ~/.config/nvim
 git clone https://github.com/Kyeongrok/nvim-init .config/nvim
 ```
