@@ -79,7 +79,7 @@ vim.api.nvim_set_keymap('n', '<S-h>', ':bprevious<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true})
 
 --vim.api.nvim_set_keymap('n', '<leader>rr', ':term poetry run python ~/rs485-python/rs485_python/main.py<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>rc', ':term gcc -o %<.o %<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>rc', ':term gcc -o %<.o %;./%<.o<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':term gcc %;./ff read<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':!python %<CR>', {noremap = true})
 
