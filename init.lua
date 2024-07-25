@@ -98,7 +98,6 @@ vim.api.nvim_set_keymap('n', '<leader>gu', ':Git push<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git pull<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiff<C>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gl', ':G log<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>gr', ':lua require("telescope.builtin").git_branches({ track = "--remote" })<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap = true})
 
