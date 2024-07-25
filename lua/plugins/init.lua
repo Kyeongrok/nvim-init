@@ -2,7 +2,13 @@ if vim == nil then
     vim = require('vim')
 end
 return {
-    {'SirVer/ultisnips'},
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
+    },
     {"folke/which-key.nvim"},
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     {"folke/neodev.nvim"},

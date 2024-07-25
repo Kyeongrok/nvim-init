@@ -3,6 +3,8 @@
 ## Prerequisite
 
 
+
+
 ### Lazy설치
 
 요즘 Plugin 매니저 플러그인 대세는 Lazy입니다. Lua베이스라서 init.lua를 설정 파일로 써야 합니다.
@@ -30,6 +32,12 @@ require("lazy").setup({
 })
 
 ```
+
+### gcc설치 .windows
+
+    treesitter를 쓰려면 gcc가 필요 합니다.
+
+    https://www.freecodecamp.org/news/how-to-install-c-and-cpp-compiler-on-windows/
 
 
 
