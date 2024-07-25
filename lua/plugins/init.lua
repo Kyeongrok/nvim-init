@@ -10,6 +10,7 @@ return {
         build = "make install_jsregexp"
     },
     {"folke/which-key.nvim"},
+    {'junegunn/gv.vim'},
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     {"folke/neodev.nvim"},
 	"tpope/vim-fugitive",
