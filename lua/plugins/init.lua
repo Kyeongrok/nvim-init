@@ -15,13 +15,27 @@ return {
         'akinsho/bufferline.nvim', version = "*", 
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
-        require("bufferline").setup{}
+            require("bufferline").setup{
+                options = {
+                    themable = true,
+                    indicator = {
+                        icon = '▎', -- this should be omitted if indicator style is not 'icon'
+                        style = 'underline'
+                    },
+                    always_show_bufferline = true,
+                    show_close_icon = false,
+                    --separator_style = "slant",
+                    diagnostics = "nvim_lsp",
+                    -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
+                    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                        return "("..count..")"
+                    end,
+                }
+            }
         end,
     },
-    {
-        'mg979/vim-visual-multi'
-    },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {"mg979/vim-visual-multi"},
+    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },

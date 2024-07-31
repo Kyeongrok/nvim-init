@@ -12,7 +12,7 @@ return {
                 ensure_installed = {
                     --"lua_ls",
                     "clangd",
-                   -- "pylyzer"
+                    "pylyzer"
                 }
             })
         end
@@ -23,6 +23,7 @@ return {
             local lspconfig = require('lspconfig')
             --lspconfig.lua_ls.setup({})
             lspconfig.clangd.setup({})
+            lspconfig.pylyzer.setup({})
 
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true });
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true });  -- goto definition

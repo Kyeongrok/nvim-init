@@ -33,20 +33,19 @@ vim.api.nvim_set_option('clipboard', 'unnamedplus')
 vim.o.nu=true                                                                                                              
 vim.o.mouse=a
 
+local nvim_home = "~/AppData/local/nvim"
 if is_windows then
   -- Windows에서의 키 매핑
   vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
 else
   -- Linux에서의 키 매핑
   vim.api.nvim_set_keymap('n', '<F10>', ':e ~/.config/nvim/init.lua<CR>', {noremap = true, silent = true})
+  vim.api.nvim_set_keymap('n', '<F11>', ':e ~/.config/nvim/lua/plugins/nvim-cmp.lua<CR>', {noremap = true, silent = true})
 end
 
 
 -- Plug 플러그인 설치
 vim.api.nvim_set_keymap('n', '<F8>', ':PlugInstall<CR>', {noremap = true})
-
--- NERDTree 토글
-vim.api.nvim_set_keymap('n', '<F11>', ':NERDTreeToggle<CR>', {noremap = true})
 
 -- 현재 파일 다시 읽기
 vim.api.nvim_set_keymap('n', '<F12>', ':source %<CR>', {noremap = true})
@@ -81,7 +80,7 @@ vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<leader>rr', ':term poetry run python ~/rs485-python/rs485_python/main.py<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rc', ':belowright split | resize 10 | term gcc -o %<.o %;./%<.o<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':term gcc %;./ff read<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>rr', ':!python %<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>rr', ':!python3 %<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rp', ':belowright split | resize 10 |!python %<CR>', {noremap = true})
 
 -- vim.api.nvim_set_keymap('n', '<leader>rc', ':term poetry run python /root/git/rs485-python/rs485_python/Gpio.py<CR>', {noremap = true})
@@ -100,6 +99,7 @@ vim.api.nvim_set_keymap('n', '<leader>gu', ':Git push<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gp', ':Git pull<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gd', ':Gdiff<C>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gl', ':G log<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>gv', ':GV<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap = true})
 
