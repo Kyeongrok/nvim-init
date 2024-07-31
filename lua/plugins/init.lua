@@ -2,30 +2,21 @@ if vim == nil then
     vim = require('vim')
 end
 return {
-    {
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = "make install_jsregexp"
-    },
     {"folke/which-key.nvim"},
-    {'junegunn/gv.vim'},
-    { "folke/neoconf.nvim", cmd = "Neoconf" },
+    {"junegunn/gv.vim"},
+    {"folke/neoconf.nvim", cmd = "Neoconf" },
     {"folke/neodev.nvim"},
-	"tpope/vim-fugitive",
+    {"tpope/vim-fugitive"},
     {"nvim-lua/plenary.nvim"},
     {"preservim/nerdtree"},
-    {
-        'nvim-tree/nvim-web-devicons'
-    },
+    {"tpope/vim-surround"},
+    {'nvim-tree/nvim-web-devicons'},
     {
         'akinsho/bufferline.nvim', version = "*", 
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
         require("bufferline").setup{}
         end,
-
     },
     {
         'mg979/vim-visual-multi'

@@ -141,5 +141,5 @@ require("lazy").setup("plugins")
 vim.cmd.colorscheme "catppuccin"
 
 -- cmp설정 불러오기
-local cmp_config = require('config.nvim-cmp')
-cmp_config.setup()
+--local cmp_config = require('config.nvim-cmp')
+--cmp_config.setup()
