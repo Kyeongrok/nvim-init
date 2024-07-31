@@ -82,10 +82,12 @@ vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rc', ':belowright split | resize 10 | term gcc -o %<.o %;./%<.o<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':term gcc %;./ff read<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':!python %<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>rp', ':belowright split | resize 10 |!python %<CR>', {noremap = true})
 
 -- vim.api.nvim_set_keymap('n', '<leader>rc', ':term poetry run python /root/git/rs485-python/rs485_python/Gpio.py<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<leader>e', ':NERDTreeToggle<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader><leader>', ':NERDTreeToggle<CR>', {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', {noremap = true})
 
@@ -138,3 +140,6 @@ require("lazy").setup("plugins")
 
 vim.cmd.colorscheme "catppuccin"
 
+-- cmp설정 불러오기
+local cmp_config = require('config.nvim-cmp')
+cmp_config.setup()
