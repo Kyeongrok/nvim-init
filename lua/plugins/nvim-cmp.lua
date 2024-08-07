@@ -10,7 +10,6 @@ return{
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-nvim-lsp-signature-help',
             'onsails/lspkind.nvim',
-            'ray-x/cmp-treesitter',
             'L3MON4D3/LuaSnip'
         },
         event = "InsertEnter",
