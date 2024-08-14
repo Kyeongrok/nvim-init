@@ -26,14 +26,14 @@ return{
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-d>"] = actions.results_scrolling_down,
                             ["<C-u>"] = actions.results_scrolling_up,
-                            ["<CR>"] = checkout_remote_branch
+--                            ["<CR>"] = checkout_remote_branch
                         },
                         n = {
                             ["j"] = actions.move_selection_next,
                             ["k"] = actions.move_selection_previous,
                             ["<C-d>"] = actions.results_scrolling_down,
                             ["<C-u>"] = actions.results_scrolling_up,
-                            ["<CR>"] = checkout_remote_branch
+--                            ["<CR>"] = checkout_remote_branch
                         },
                     },
                 },
