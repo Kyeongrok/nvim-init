@@ -41,19 +41,20 @@ require("lazy").setup({
 
 
 
-### vim-plug설치
+## vim-plug설치
 
 ```
 https://github.com/junegunn/vim-plug
 ```
 
-## Windows PowerShell
+### Windows PowerShell
 ```
 iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 
 ```
 
+## NVIM 세팅 불러오기
 
 ### .config/nvim 디렉토리만들기
 
@@ -63,11 +64,13 @@ mkdir ~/.config/nvim
 git clone https://github.com/Kyeongrok/nvim-init .config/nvim
 ```
 
-### Windows nvim root
+### Windows nvim root로 Clone
 
-~/AppData/local/nvim/init.lua
+```shell
+git clone https://github.com/Kyeongrok/nvim-init ~/AppData/local/nvim
+```
 
-
+## 설정
 
 ### init.lua파일 리로드
 
