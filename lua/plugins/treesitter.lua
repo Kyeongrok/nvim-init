@@ -2,7 +2,7 @@ return{
 {
     "nvim-treesitter/nvim-treesitter",
     enabled = function()
-      return vim.fn.has("mac") ~= 1  -- Mac이 아닐 때만 활성화
+            return vim.fn.has("mac") ~= 1 and vim.g.nvim_treesitter_enabled == 1 -- mac이 아닐때 그리고 global에서 설정이 1일때만
     end,
     build = ":TSUpdate",
     config = function () 
