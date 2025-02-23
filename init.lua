@@ -122,6 +122,12 @@ vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', {noremap
 vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope buffers<CR>', {noremap = true})
 
 
+--------------------
+-- Telekasten
+--------------------
+vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
+
+
 --require("mason").setup()
 --require("bufferline").setup()
 --require('nvim-web-devicons').setup()
