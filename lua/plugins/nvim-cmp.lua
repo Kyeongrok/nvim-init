@@ -1,6 +1,10 @@
 return{
     {
         'hrsh7th/nvim-cmp',
+         enabled = function()
+            return vim.fn.has("mac") ~= 1 and vim.g.nvim_cmp_enabled == 1 -- mac이 아닐때 그리고 global에서 설정이 1일때만
+        end,
+
         lazy = false,
         priority = 100,
         dependencies = {
