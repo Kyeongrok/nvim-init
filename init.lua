@@ -37,6 +37,7 @@ local nvim_home = "~/AppData/local/nvim"
 if is_windows then
   -- Windows에서의 키 매핑
   vim.api.nvim_set_keymap('n', '<F10>', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
+  vim.api.nvim_set_keymap('n', '<leader>se', ':e ~/AppData/local/nvim/init.lua<CR>', {noremap = true, silent = true})
 else
   -- Linux에서의 키 매핑
   vim.api.nvim_set_keymap('n', '<F10>', ':e ~/.config/nvim/init.lua<CR>', {noremap = true, silent = true})
@@ -80,7 +81,7 @@ vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<leader>rr', ':term poetry run python ~/rs485-python/rs485_python/main.py<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rc', ':belowright split | resize 10 | term gcc -o %<.o %;./%<.o<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rr', ':term gcc %;./ff read<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', '<leader>rr', ':!python3 %<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>rr', ':!python %<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>rp', ':belowright split | resize 10 |!python %<CR>', {noremap = true})
 
 -- vim.api.nvim_set_keymap('n', '<leader>rc', ':term poetry run python /root/git/rs485-python/rs485_python/Gpio.py<CR>', {noremap = true})
