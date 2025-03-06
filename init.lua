@@ -110,10 +110,10 @@ vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap
 -- C:\tools 에 im-select.exe를 넣어주어야 합니다. 
 ------------
 
-local input_source_ko = "1042" -- 한글 입력기 (Microsoft IME)
-local input_source_en = "1033" -- 영어 입력기 (US Keyboard)
+local input_source_ko = "412" -- 한글 입력기 (Microsoft IME)
+local input_source_en = "409" -- 영어 입력기 (US Keyboard)
 local input_source_toggle_key = "<S-Space>" -- 한영 전환 키
-local im_select_path = "C:\\tools\\im-select.exe" -- im-select.exe 위치
+local im_select_path = "C:\\Users\\kyeongrok\\ConsoleApp1.exe" -- im-select.exe 위치
 
 local function get_ime()
     return vim.fn.system(im_select_path)
@@ -134,10 +134,15 @@ end
 
 vim.keymap.set('i', input_source_toggle_key, toggle_input_sources, {silent=true})
 
--- Esc를 누르면 영어 입력기로 전환
-vim.keymap.set("i", "<Esc>", function()
-    set_ime(input_source_en)
-    return "<Esc>"
+-- c-]를 누르면 korean 입력기로 전환
+vim.keymap.set("i", "<C-Space>", function()
+    set_ime(input_source_ko)
+    return "<C-Space>"
+end, { expr = true, silent = true })
+
+vim.keymap.set("i", "<c-]>", function()
+    set_ime(input_source_ko)
+    return "<C-]>"
 end, { expr = true, silent = true })
 
 
