@@ -111,6 +111,12 @@ vim.api.nvim_set_keymap('n', '<leader>c', ':Calendar<CR>', {noremap = true})
 
 
 --------------------
+-- Telekasten
+--------------------
+vim.api.nvim_set_keymap('n', '<leader>z', ':Telekasten<CR>', {noremap = true})
+
+
+--------------------
 -- Mason
 --------------------
 vim.api.nvim_set_keymap('n', '<leader>m', ':Mason<CR>', {noremap = true})
