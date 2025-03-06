@@ -104,6 +104,11 @@ vim.api.nvim_set_keymap('n', '<leader>gv', ':GV<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap = true})
 
+--------------------
+-- Calendar
+--------------------
+vim.api.nvim_set_keymap('n', '<leader>c', ':Calendar<CR>', {noremap = true})
+
 
 --------------------
 -- Mason
