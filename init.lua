@@ -104,6 +104,56 @@ vim.api.nvim_set_keymap('n', '<leader>gv', ':GV<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>gb', ':lua require("telescope.builtin").git_branches()<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap = true})
 
+
+------------
+-- ESC 누르면 한글 설정
+-- C:\tools 에 im-select.exe를 넣어주어야 합니다. 
+------------
+
+local input_source_ko = "1042" -- 한글 입력기 (Microsoft IME)
+local input_source_en = "1033" -- 영어 입력기 (US Keyboard)
+local input_source_toggle_key = "<S-Space>" -- 한영 전환 키
+local im_select_path = "C:\\tools\\im-select.exe" -- im-select.exe 위치
+
+local function get_ime()
+    return vim.fn.system(im_select_path)
+end
+
+local function set_ime(lang)
+    vim.fn.system(im_select_path .." ".. lang)
+end
+
+local function toggle_input_sources()
+    local current_ime = get_ime():gsub("%s+", "") -- 공백 제거
+    if current_ime == input_source_ko then
+        set_ime(input_source_en)
+    else
+        set_ime(input_source_ko)
+    end
+end
+
+vim.keymap.set('i', input_source_toggle_key, toggle_input_sources, {silent=true})
+
+-- Esc를 누르면 영어 입력기로 전환
+vim.keymap.set("i", "<Esc>", function()
+    set_ime(input_source_en)
+    return "<Esc>"
+end, { expr = true, silent = true })
+
+
+-- Command-line 모드에서 Esc 누르면 영어 입력기로 변경
+vim.keymap.set("c", "<Esc>", function()
+    set_ime(input_source_en)
+    return "<Esc>"
+end, { expr = true, silent = true })
+
+-- Normal 모드 진입 시 자동으로 영어 입력기로 변경
+vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+        set_ime(input_source_en)
+    end
+})
+
 --------------------
 -- Calendar
 --------------------
