@@ -11,8 +11,12 @@
 
 다음은 Lazy를 설치 한 후 fugitive git플러그인까지 설치하는 스크립트 입니다.
 
-init.lua
 
+
+#### 경로
+linux: ~/.config/nvim/init.lua
+
+init.lua
 ```lua
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
