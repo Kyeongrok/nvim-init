@@ -206,11 +206,20 @@ vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
 
 
 
---vim.api.nvim_create_autocmd("VimEnter", {
---  callback = function()
---    vim.cmd("NERDTree | wincmd p")
---  end
---})
+-- NERDTree 설정
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("NERDTree | wincmd p")
+  end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+callback = function()
+  if vim.fn.winnr('$') == 1 and vim.b.NERDTree and vim.b.NERDTree.isTabTree then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(":quit<CR>", true, true, true), "n", false)
+  end
+end
+})
 
 
 
