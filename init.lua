@@ -117,7 +117,7 @@ vim.api.nvim_set_keymap('n', '<leader>u', ':Telescope colorscheme<CR>', {noremap
 local input_source_ko = "412" -- 한글 입력기 (Microsoft IME)
 local input_source_en = "409" -- 영어 입력기 (US Keyboard)
 local input_source_toggle_key = "<S-Space>" -- 한영 전환 키
-local im_select_path = "C:\\Users\\kyeongrok\\ConsoleApp1.exe" -- im-select.exe 위치
+local im_select_path = "\\ConsoleApp1.exe" -- im-select.exe 위치
 
 local function get_ime()
     return vim.fn.system(im_select_path)
@@ -203,6 +203,16 @@ vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
 --require("bufferline").setup()
 --require('nvim-web-devicons').setup()
 --require'nvim-web-devicons'.get_icons()
+
+
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("NERDTree | wincmd p")
+  end
+})
+
+
 
 function ReloadConfig()
     vim.cmd('source ' .. vim.fn.expand('%:p'))
