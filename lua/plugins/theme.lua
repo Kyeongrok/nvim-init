@@ -10,4 +10,9 @@ return {
           -- load the colorscheme here
         end,
     },
+    {
+        "rebelot/kanagawa.nvim",
+        lazy = false,
+        priority = 1000
+    }
 }
