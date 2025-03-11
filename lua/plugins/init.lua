@@ -5,7 +5,7 @@ return {
     {"folke/which-key.nvim"},
     {"junegunn/gv.vim"},
     {"folke/neoconf.nvim", cmd = "Neoconf" },
-    {"folke/neodev.nvim"},
+    --{"folke/neodev.nvim"},
     {"tpope/vim-fugitive"},
     {"nvim-lua/plenary.nvim"},
     {"tpope/vim-surround"},
@@ -34,7 +34,6 @@ return {
         end,
     },
     {"mg979/vim-visual-multi"},
-    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
