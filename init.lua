@@ -206,11 +206,11 @@ vim.keymap.set("n", "<leader>zn", "<cmd>Telekasten new_note<CR>")
 
 
 
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.cmd("NERDTree | wincmd p")
-  end
-})
+--vim.api.nvim_create_autocmd("VimEnter", {
+--  callback = function()
+--    vim.cmd("NERDTree | wincmd p")
+--  end
+--})
 
 
 
