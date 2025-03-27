@@ -61,6 +61,7 @@ vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<silent> <leader>', ":WhichKey '<Space>'<CR>", {noremap = true})
 
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', {noremap = true})
 
 -- Move Screen
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true})
