@@ -11,6 +11,14 @@ return {
     {"tpope/vim-surround"},
     {'nvim-tree/nvim-web-devicons'},
     {
+      'hashivim/vim-terraform',
+      ft = { 'terraform', 'tf', 'hcl' },
+      config = function()
+        vim.g.terraform_fmt_on_save = 1
+        vim.g.terraform_align = 1
+      end,
+    },
+    {
         'akinsho/bufferline.nvim', version = "*", 
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
