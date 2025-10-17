@@ -235,8 +235,9 @@ vim.api.nvim_create_user_command('ReloadConfig', ReloadConfig, {})
 
 require("lazy").setup("plugins")
 
-vim.cmd.colorscheme "kanagawa"
+vim.cmd.colorscheme "nord"
 
 -- cmp설정 불러오기
 --local cmp_config = require('config.nvim-cmp')
 --cmp_config.setup()
+
